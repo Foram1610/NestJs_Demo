@@ -1,0 +1,899 @@
+{
+	"info": {
+		"_postman_id": "1909d683-b09c-4140-b989-5bd63bb15a92",
+		"name": "Science Fair with Nestjs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.environment.set(\"TOKEN\", response.token);",
+									"console.log('Token: ',response.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"admin@narola.email\",\n    \"password\" : \"Password@12\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"fbp@narola.email\",\n    \"password\" : \"Password@12\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.100.89:5000/api/v1/admin/adminLogin",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"100",
+								"89"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"adminLogin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Science Fair",
+			"item": [
+				{
+					"name": "Add Science Fair",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Science 2023 2",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Surat, Adajan",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2022/6/12",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "dsfhjvdbgmvdf",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/c100-89/Desktop/Foram/photo-1576201836106-db1758fd1c97.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/science-fair",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"science-fair"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sciencefairs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/science-fair/getAll",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"science-fair",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update science Fair",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/c100-89/Desktop/Foram/wp1897370.jpeg"
+								},
+								{
+									"key": "name",
+									"value": "2023's Fair",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "Pal",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "sghfcaswdcfjdaswcf.hjkhkjl hjioljoij ",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2022/6/15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/science-fair/6409c0300c75850c8c431c98",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"science-fair",
+								"6409c0300c75850c8c431c98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Science fair",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/science-fair/6409c0300c75850c8c431c98",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"science-fair",
+								"6409c0300c75850c8c431c98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Science Fair By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/science-fair/6409c0300c75850c8c431c98",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"science-fair",
+								"6409c0300c75850c8c431c98"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Foram",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Parmar",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "fbp@narola.email",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Password@12",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/Users/c100-89/Desktop/Foram/8e6039a4c9cb6553c2bfcdb042ce8f21.jpeg"
+								},
+								{
+									"key": "scienceFairId",
+									"value": "64129bd8600d4a642797b73d",
+									"type": "text"
+								},
+								{
+									"key": "schoolId",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userRole",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/Users/c100-89/Desktop/Foram/8e6039a4c9cb6553c2bfcdb042ce8f21.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/user/fileUpload",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"fileUpload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/user/getAll",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/user/64103519039f5ddcbc34b508",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"64103519039f5ddcbc34b508"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\" : \"Sam\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user/64103519039f5ddcbc34b508",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"64103519039f5ddcbc34b508"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/user/64103519039f5ddcbc34b508",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"64103519039f5ddcbc34b508"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "School",
+			"item": [
+				{
+					"name": "Add School",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"INT\",\n    \"schoolCode\" : \"INT001\",\n    \"location\" : \"Adajan\",\n    \"scienceFairId\" : \"64129673c070f4df485d6047\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get schools",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/school/getAll",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update School",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schoolCode\" : \"INT001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/school/6412ebaeb8a345d1d47e3a89",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school",
+								"6412ebaeb8a345d1d47e3a89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete School",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/school/6412ebaeb8a345d1d47e3a89",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school",
+								"6412ebaeb8a345d1d47e3a89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get School by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/school/6412ebaeb8a345d1d47e3a89",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"school",
+								"6412ebaeb8a345d1d47e3a89"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Add Students",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\" : \"Max\",\n    \"lastName\" : \"AJ\",\n    \"scienceFairId\" : \"64129673c070f4df485d6047\",\n    \"schoolId\" : \"6412ebaeb8a345d1d47e3a89\",\n    \"grade\" : \"4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/student",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Students",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/student/getAll",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"student",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get student by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/student/6412f14976934b36a18ff7ea",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"student",
+								"6412f14976934b36a18ff7ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"grade\" : \"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/student/6412f14976934b36a18ff7ea",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"student",
+								"6412f14976934b36a18ff7ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/student/6412f14976934b36a18ff7ea",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"student",
+								"6412f14976934b36a18ff7ea"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Add Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Senior\",\n    \"description\" : \"Grades 10, 11, & 12\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/category/getAll",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"category",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Strand",
+			"item": [
+				{
+					"name": "Add Strand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"strandName\": \"Innovation\",\n    \"parentStrand\": \"6412e328bc3bbe34073220fc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/strand",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"strand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Strands",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"options\": {\n        \"select\": {},\n        \"limit\": 50,\n        \"page\": 1,\n        \"sort\": {},\n        \"populate\": [\n            {\n                \"path\": \"parentStrand\",\n                \"select\": [\n                    \"strandName\"\n                ]\n            }\n        ],\n        \"pagination\": true\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/strand/getAll",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"strand",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Add Project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Tree\",\n    \"description\" : \"sfsfvsvdfsgvfv\",\n    \"scienceFairId\" : \"64129673c070f4df485d6047\",\n    \"schoolId\" : \"6412ebaeb8a345d1d47e3a89\",\n    \"categoryId\" : \"6412e25406f112308f889448\",\n    \"strandId\" : \"6412e348bc3bbe34073220fe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/project",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Projects",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/project/getAll",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"project",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/project/6412f4ac7dc9c526e8fe389b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"project",
+								"6412f4ac7dc9c526e8fe389b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"students\" : [\"6412f12976934b36a18ff7e7\",\"6412f14976934b36a18ff7ea\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/project/6412f4ac7dc9c526e8fe389b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"project",
+								"6412f4ac7dc9c526e8fe389b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/project/6412f4ac7dc9c526e8fe389b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"project",
+								"6412f4ac7dc9c526e8fe389b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Result",
+			"item": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
